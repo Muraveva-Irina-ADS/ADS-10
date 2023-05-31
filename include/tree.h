@@ -3,13 +3,13 @@
 #define INCLUDE_TREE_H_
 #include <vector>
 class Tree {
-private:
+ private:
     struct Ptr {
     std::vector<Tree*> childs;
     char ch;
     };
     Ptr* child;
-    Tree(char ch) {
+    explicit Tree(char ch) {
         child = new Ptr;
         child->ch = ch;
     }
@@ -22,8 +22,8 @@ private:
         }
     }
 
-public:
-    Tree(const std::vector<char>& vec) {
+ public:
+    explicit Tree(const std::vector<char>& vec) {
         child = new Ptr;
         child->ch = '*';
         create(vec);
